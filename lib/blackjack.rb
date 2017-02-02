@@ -65,13 +65,19 @@ end
 # get every test to pass before coding runner below #
 #####################################################
 
+
 def runner
   welcome
   card_sum = initial_round
-  while card_sum < 21 do
-    card_sum = hit?(card_sum)
+ until card_sum > 21 do
+   hit = hit?(card_sum)
 
+    if  hit.is_a?(Integer)
+      card_sum = hit
+      puts "Your cards add up to #{card_sum}"
+    end
+    return end_game(card_sum) if card_sum > 21
 
   end
- end_game(card_sum)
+
 end
